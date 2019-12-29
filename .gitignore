@@ -1,0 +1,7 @@
+*.o
+boot
+head
+*.map
+system
+Image
+*.bxrc
