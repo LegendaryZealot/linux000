@@ -6,7 +6,6 @@ TSS0_SEL	= 0x20
 LDT0_SEL	= 0x28
 TSS1_SEL	= 0X30
 LDT1_SEL	= 0x38
-.code32
 .global startup_32
 .text
 startup_32:

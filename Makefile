@@ -28,7 +28,7 @@ boot:	boot.s
 clean:
 	rm -f System.map core boot head *.o system
 
-veryclean:
+veryclean:clean
 	rm -f Image bochs.log
 
 run:all
