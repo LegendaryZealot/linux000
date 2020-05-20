@@ -180,13 +180,12 @@ lgdt_opcode:
 	.long gdt		# This will be rewrite by code.
 
 	.align 8
-idt:	.fill 256,8,0		# idt is uninitialized
+idt:.fill 256,8,0		# idt is uninitialized
 
-gdt:	.quad 0x0000000000000000	/* NULL descriptor */
+gdt:.quad 0x0000000000000000	/* NULL descriptor */
 	.quad 0x00c09a00000007ff	/* 8Mb 0x08, base = 0x00000 */
 	.quad 0x00c09200000007ff	/* 8Mb 0x10 */
 	.quad 0x00c0920b80000002	/* screen 0x18 - for display */
-
 	.word 0x0068, tss0, 0xe900, 0x0	# TSS0 descr 0x20
 	.word 0x0040, ldt0, 0xe200, 0x0	# LDT0 descr 0x28
 	.word 0x0068, tss1, 0xe900, 0x0	# TSS1 descr 0x30
@@ -203,7 +202,7 @@ ldt0:	.quad 0x0000000000000000
 	.quad 0x00c0fa00000003ff	# 0x0f, base = 0x00000
 	.quad 0x00c0f200000003ff	# 0x17
 
-tss0:	.long 0 			/* back link */
+tss0:.long 0 			/* back link */
 	.long krn_stk0, 0x10		/* esp0, ss0 */
 	.long 0, 0, 0, 0, 0		/* esp1, ss1, esp2, ss2, cr3 */
 	.long 0, 0, 0, 0, 0		/* eip, eflags, eax, ecx, edx */
@@ -217,11 +216,11 @@ krn_stk0:
 
 /************************************/
 .align 8
-ldt1:	.quad 0x0000000000000000
+ldt1:.quad 0x0000000000000000
 	.quad 0x00c0fa00000003ff	# 0x0f, base = 0x00000
 	.quad 0x00c0f200000003ff	# 0x17
 
-tss1:	.long 0 			/* back link */
+tss1:.long 0 			/* back link */
 	.long krn_stk1, 0x10		/* esp0, ss0 */
 	.long 0, 0, 0, 0, 0		/* esp1, ss1, esp2, ss2, cr3 */
 	.long task1, 0x200		/* eip, eflags */
@@ -229,7 +228,6 @@ tss1:	.long 0 			/* back link */
 	.long usr_stk1, 0, 0, 0		/* esp, ebp, esi, edi */
 	.long 0x17,0x0f,0x17,0x17,0x17,0x17 /* es, cs, ss, ds, fs, gs */
 	.long LDT1_SEL, 0x8000000	/* ldt, trace bitmap */
-
 	.fill 128,4,0
 krn_stk1:
 
