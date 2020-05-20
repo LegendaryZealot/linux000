@@ -5,3 +5,4 @@ head
 system
 Image
 *.bxrc
+/*.log
