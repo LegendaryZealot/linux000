@@ -1,8 +1,5 @@
 *.o
-boot
-head
+*.bin
 *.map
-system
 Image
-*.bxrc
-/*.log
+*.log

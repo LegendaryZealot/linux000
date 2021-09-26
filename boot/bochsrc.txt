@@ -1,0 +1,18 @@
+megs: 32
+
+romimage:file=$BXSHARE/BIOS-bochs-latest
+#这个是BIOS-bochs-latest的路径，可能不一样
+
+vgaromimage:file=$BXSHARE/VGABIOS-lgpl-latest
+#这个是VGABIOS-lgpl-latest的路径，也可能不一样
+
+floppya:1_44=./Image,status=inserted 
+#这个是启动软盘,在当前目录下，如果不在当前目录，需要指明路径  
+
+boot:floppy  
+#表示从软盘启动
+
+log:bochs.log
+#日志输出文件
+
+display_library: sdl2
